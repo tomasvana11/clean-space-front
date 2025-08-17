@@ -65,16 +65,19 @@ export const Footer = ({ locale }: FooterProps) => {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 text-sm text-gray-700">
-                  <Link href="/about" className="hover:underline">
+                  <Link href={`/${locale}/about`} className="hover:underline">
                     {t(locale, "footer.linkAbout")}
                   </Link>
-                  <Link href="/services" className="hover:underline">
+                  <Link
+                    href={`/${locale}/services`}
+                    className="hover:underline"
+                  >
                     {t(locale, "footer.linkServices")}
                   </Link>
-                  <Link href="/career" className="hover:underline">
+                  <Link href={`/${locale}/career`} className="hover:underline">
                     {t(locale, "footer.linkCareer")}
                   </Link>
-                  <Link href="/contact" className="hover:underline">
+                  <Link href={`/${locale}/contact`} className="hover:underline">
                     {t(locale, "footer.linkContact")}
                   </Link>
                 </div>
@@ -88,18 +91,20 @@ export const Footer = ({ locale }: FooterProps) => {
               </div>
               <div className="py-2 px-2 bg-[#FFF5D7] rounded-b-xl flex flex-col gap-2">
                 <ContactBox
+                  locale={locale}
                   variant="small"
                   icon="/icons/phone_duo.svg"
                   text="+357 97741469"
                   href="tel:+35797741469"
-                  className="text-[#372900] px-3 py-2 rounded-lg hover:bg-white transition-colors"
+                  className="text-[#372900] rounded-lg hover:bg-white transition-colors"
                 />
                 <ContactBox
+                  locale={locale}
                   variant="small"
                   icon="/icons/email_duo.svg"
                   text="info@cleanspace.eu.com"
                   href="mailto:info@cleanspace.eu.com"
-                  className="text-[#372900] px-3 py-2 rounded-lg hover:bg-white transition-colors"
+                  className="text-[#372900] rounded-lg hover:bg-white transition-colors"
                 />
               </div>
             </div>

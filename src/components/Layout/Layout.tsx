@@ -7,7 +7,7 @@ export const Layout = ({ children, locale, className = "" }: LayoutProps) => {
       className={`min-h-screen ${className}`}
       style={{ backgroundColor: "#f1f1f3" }}
     >
-      <main className="container mx-auto min-h-screen">{children}</main>
+      <main className="mx-auto min-h-screen">{children}</main>
       <Footer locale={locale} />
     </div>
   );
