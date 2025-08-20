@@ -5,8 +5,8 @@ import "./globals.css";
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Your Multilingual App",
-  description: "A Next.js app with Strapi CMS",
+  title: "Cleanspace Ltd - Professional cleaning services in Cyprus",
+  description: "Professional cleaning services - Cyprus.",
 };
 
 export default function RootLayout({

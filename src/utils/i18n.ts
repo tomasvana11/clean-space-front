@@ -87,11 +87,22 @@ export const translations = {
         "Because every space deserves to shine – we deliver trusted cleaning services that adapt to your needs, schedule, and expectations.",
     },
     navbar: {
-      home: "Home",
-      services: "Services",
-      about: "About",
+      about: "About us",
+      services: "All services",
+      career: "Career",
       contact: "Contact",
-      orderCleaning: "Order Cleaning",
+      orderCleaning: "Order cleaning",
+    },
+    pricing: {
+      title: "Choose your cleaning frequency and get a discount!",
+      subtitle:
+        "Cleaning regularly pays off – enjoy a spotless space with a pleasant discount.",
+      weekly: "Weekly",
+      biweekly: "Twice a month",
+      monthly: "Monthly",
+      oneTime: "One-time",
+      disclaimer:
+        "*You can modify or cancel your regular cleaning plan anytime.",
     },
   },
   cs: {
@@ -171,11 +182,22 @@ export const translations = {
         "Protože každý prostor si zaslouží zářit – poskytujeme spolehlivé úklidové služby, které se přizpůsobí vašim potřebám, rozvrhu i očekáváním.",
     },
     navbar: {
-      home: "Domů",
-      services: "Služby",
       about: "O nás",
-      contact: "Kontakt",
+      services: "Všechny naše služby",
+      career: "Kariéra",
+      contact: "Kontakty",
       orderCleaning: "Objednat úklid",
+    },
+    pricing: {
+      title: "Zvolte si frekvenci úklidu a získejte slevu!",
+      subtitle:
+        "Uklízet pravidelně se vyplatí – užijte si čistotu a k tomu příjemnou slevu.",
+      weekly: "Jednou týdně",
+      biweekly: "Dvakrát měsíčně",
+      monthly: "Jednou měsíčně",
+      oneTime: "Jednorázově",
+      disclaimer:
+        "*Váš pravidelný úklidový plán můžete kdykoli upravit či zrušit.",
     },
   },
   ru: {
@@ -256,11 +278,22 @@ export const translations = {
         "Каждое пространство заслуживает сиять — мы предоставляем надежные услуги по уборке, которые адаптируются к вашим потребностям, графику и ожиданиям.",
     },
     navbar: {
-      home: "Главная",
-      services: "Услуги",
       about: "О нас",
-      contact: "Контакт",
+      services: "Все услуги",
+      career: "Карьера",
+      contact: "Контакты",
       orderCleaning: "Заказать уборку",
+    },
+    pricing: {
+      title: "Выберите частоту уборки и получите скидку!",
+      subtitle:
+        "Регулярная уборка всегда выгодна — наслаждайтесь чистотой и приятной скидкой.",
+      weekly: "Раз в неделю",
+      biweekly: "Два раза в месяц",
+      monthly: "Раз в месяц",
+      oneTime: "Разово",
+      disclaimer:
+        "*Вы можете изменить или отменить план регулярной уборки в любое время.",
     },
   },
 };

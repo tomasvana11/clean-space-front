@@ -23,7 +23,7 @@ export default async function GdprPage({ params }: Props) {
   const contentElements = renderStrapiContent(gdprData.content, locale);
 
   return (
-    <ContentWrapper>
+    <ContentWrapper className="pt-[72px] lg:pt-[96px]">
       <Article>
         <Title as="h3" locale={locale} className="py-8 text-center">
           {gdprData.title}

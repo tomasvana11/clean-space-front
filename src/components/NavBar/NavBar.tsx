@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { NavBarProps, NavItem } from "./NavBar.types";
 import { Button } from "@/components/Button";
@@ -10,11 +11,19 @@ import { ContentWrapper } from "../ContentWrapper";
 
 export const NavBar = ({ locale }: NavBarProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Funkce pro vytvoření URL s jiným jazykem
+  const getLocaleUrl = (newLocale: Locale) => {
+    const segments = pathname.split("/");
+    segments[1] = newLocale; // nahradí první segment (jazyk)
+    return segments.join("/") || `/${newLocale}`;
+  };
 
   const navItems: NavItem[] = [
-    { label: t(locale, "navbar.home"), href: `/${locale}` },
+    { label: t(locale, "navbar.about"), href: `/${locale}` },
     { label: t(locale, "navbar.services"), href: `/${locale}/services` },
-    { label: t(locale, "navbar.about"), href: `/${locale}/about` },
+    { label: t(locale, "navbar.career"), href: `/${locale}/career` },
     { label: t(locale, "navbar.contact"), href: `/${locale}/contact` },
   ];
 
@@ -23,34 +32,34 @@ export const NavBar = ({ locale }: NavBarProps) => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#1A1A1A]/50 backdrop-blur-md h-[72px] md:h-[96px]">
+    <nav className="fixed top-0 w-full z-500 bg-[#1A1A1A]/50 backdrop-blur-md h-[72px] lg:h-[96px]">
       <ContentWrapper className="h-full">
         <div className="flex items-center justify-between h-full">
           {/* Left side - Logo + Language switcher */}
           <div className="flex items-center space-x-6">
             {/* Logo */}
             <Link href={`/${locale}`} className="flex-shrink-0">
-              <div className="relative w-auto h-10 md:h-16">
+              <div className="relative w-auto h-10 lg:h-16">
                 <Image
                   src="/images/cleanspace_logo_white.svg"
                   alt="CleanSpace Logo"
                   width={150}
                   height={64}
-                  className="h-10 md:h-16 w-auto object-contain"
+                  className="h-10 lg:h-16 w-auto object-contain"
                 />
               </div>
             </Link>
 
             {/* Language switcher - Desktop */}
-            <div className="hidden md:flex space-x-2">
+            <div className="hidden lg:flex space-x-2">
               {locales.map((lang) => (
                 <Link
                   key={lang}
-                  href={`/${lang}`}
+                  href={getLocaleUrl(lang)}
                   className={`px-2 py-1 text-sm font-medium rounded transition-colors ${
                     locale === lang
-                      ? "bg-blue-100 text-blue-600"
-                      : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
+                      ? "bg-[#FFBF00] text-[#372900]"
+                      : "text-[#FFBF00] hover:text-white hover:bg-[#372900]"
                   }`}
                 >
                   {lang.toUpperCase()}
@@ -60,21 +69,22 @@ export const NavBar = ({ locale }: NavBarProps) => {
           </div>
 
           {/* Right side - CTA Button (Desktop) + Mobile menu button */}
-          {/* Navigation links (Desktop) */}
           <div className="flex items-center space-x-4">
-            <div className="hidden md:flex space-x-8">
+            {/* Navigation links (Desktop) */}
+            <div className="hidden lg:flex space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                  className="text-gray-300 hover:text-blue-400 font-medium transition-colors"
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
+
             {/* CTA Button - Desktop */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <Link href={`/${locale}/contact`}>
                 <Button
                   variant="primary"
@@ -89,7 +99,7 @@ export const NavBar = ({ locale }: NavBarProps) => {
             {/* Mobile menu button */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+              className="lg:hidden p-2 text-gray-200 hover:text-white"
               aria-label="Toggle mobile menu"
             >
               <svg
@@ -120,19 +130,19 @@ export const NavBar = ({ locale }: NavBarProps) => {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
             <div className="px-4 py-4 space-y-4">
               {/* Language switcher - Mobile */}
               <div className="flex space-x-2 pb-4 border-b border-gray-200">
                 {locales.map((lang) => (
                   <Link
                     key={lang}
-                    href={`/${lang}`}
+                    href={getLocaleUrl(lang)}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`px-3 py-1 text-sm font-medium rounded transition-colors ${
                       locale === lang
-                        ? "bg-blue-100 text-blue-600"
-                        : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
+                        ? "bg-[#FFF5D7] text-[#FFA000]"
+                        : "text-gray-600 hover:text-[#FFA000] hover:bg-gray-100"
                     }`}
                   >
                     {lang.toUpperCase()}
@@ -147,7 +157,7 @@ export const NavBar = ({ locale }: NavBarProps) => {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block text-gray-700 hover:text-blue-600 font-medium py-2"
+                    className="block text-gray-700 hover:text-[#FFA000] font-medium py-2"
                   >
                     {item.label}
                   </Link>
@@ -160,7 +170,12 @@ export const NavBar = ({ locale }: NavBarProps) => {
                   href={`/${locale}/contact`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Button variant="primary" size="md" fullWidth>
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    fullWidth
+                    className="text-white"
+                  >
                     {t(locale, "navbar.orderCleaning")}
                   </Button>
                 </Link>

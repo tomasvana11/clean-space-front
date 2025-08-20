@@ -36,7 +36,7 @@ export const Hero = ({
       )}
 
       {/* Obsah */}
-      <div className="relative z-10 w-full pt-[96px] md:pt-[128px] pb-[128px] md:pb-[180px]">
+      <div className="relative z-10 w-full pt-[96px] lg:pt-[128px] pb-[128px] md:pb-[180px]">
         <ContentWrapper>
           <div className="text-center text-white py-10 md:py-14">
             <Title as={titleAs} locale={locale} className="text-white">
