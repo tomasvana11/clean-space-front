@@ -50,9 +50,48 @@ export const translations = {
       messagePlaceholder: "What would you like to tell us?",
       submitButton: "Send",
       requiredHelper: "Required field",
+      formTitle: "Leave us a message",
+    },
+    career: {
+      heroTitle:
+        "Join us and secure above-average earnings with a flexible work schedule!",
+      heroDesc:
+        "Build a career tailored to you – with transparent earnings, a flexible schedule, and growth opportunities.",
+      formLabel: "💸 Start today!",
+    },
+    careerForm: {
+      formTitle: "Fill out a short questionnaire and we will contact you!",
+      name: "Full Name",
+      namePlaceholder: "Your full name",
+      email: "E-mail",
+      emailPlaceholder: "Your e-mail address",
+      phone: "Phone",
+      phonePlaceholder: "Your phone number",
+      submitButton: "I'm interested in a job",
+    },
+    careerBanner: {
+      btnText: "Fill out the form",
+    },
+    forms: {
+      submitting: "Submitting...",
       errorMessage: "There was an issues sending your message.",
       successMessage: "Message sent successfully!",
-      formTitle: "Leave us a message",
+    },
+    services: {
+      title: "All our services",
+      desc: "From everyday cleaning to special care – services built around your space.",
+    },
+    home: {
+      heroTitle: "Professional cleaning services",
+      heroDesc:
+        "Because every space deserves to shine – we deliver trusted cleaning services that adapt to your needs, schedule, and expectations.",
+    },
+    navbar: {
+      home: "Home",
+      services: "Services",
+      about: "About",
+      contact: "Contact",
+      orderCleaning: "Order Cleaning",
     },
   },
   cs: {
@@ -95,9 +134,48 @@ export const translations = {
       messagePlaceholder: "Co byste nám chtěli sdělit?",
       submitButton: "Odeslat",
       requiredHelper: "Povinné pole",
+      formTitle: "Zanechte nám zprávu",
+    },
+    career: {
+      heroTitle:
+        "Přidejte se k nám a zajistěte si nadstandartní výdělek a flexibilní pracovní dobu!",
+      heroDesc:
+        "Vytvořte si kariéru ušitou na míru - s transparentním výdělkem, flexibilním rozvrhem a možností růstu.",
+      formLabel: "💸 Začněte již dnes!",
+    },
+    careerForm: {
+      formTitle: "Vyplňte krátký dotazník a my se vám ozveme!",
+      name: "Celé jméno",
+      namePlaceholder: "Vaše celé jméno",
+      email: "E-mail",
+      emailPlaceholder: "Vaše e-mailová adresa",
+      phone: "Telefon",
+      phonePlaceholder: "Vaše telefonní číslo",
+      submitButton: "Mám zájem o práci",
+    },
+    careerBanner: {
+      btnText: "Vyplnit formulář",
+    },
+    forms: {
+      submitting: "Odesílání...",
       errorMessage: "Při odesílání zprávy došlo k chybě.",
       successMessage: "Zpráva byla úspěšně odeslána!",
-      formTitle: "Zanechte nám zprávu",
+    },
+    services: {
+      title: "Všechny naše služby",
+      desc: "Od každodenního úklidu po speciální péči – služby šité na míru vašemu prostoru.",
+    },
+    home: {
+      heroTitle: "Profesionální úklidové služby",
+      heroDesc:
+        "Protože každý prostor si zaslouží zářit – poskytujeme spolehlivé úklidové služby, které se přizpůsobí vašim potřebám, rozvrhu i očekáváním.",
+    },
+    navbar: {
+      home: "Domů",
+      services: "Služby",
+      about: "O nás",
+      contact: "Kontakt",
+      orderCleaning: "Objednat úklid",
     },
   },
   ru: {
@@ -140,9 +218,49 @@ export const translations = {
       messagePlaceholder: "Что бы вы хотели нам сообщить?",
       submitButton: "Отправить",
       requiredHelper: "Обязательное поле",
+      formTitle: "оставьте нам сообщение",
+    },
+    career: {
+      heroTitle:
+        "Присоединяйтесь к нам и обеспечьте себе высокий доход и гибкий график работы!",
+      heroDesc:
+        "Создайте карьеру по индивидуальному плану – с прозрачной оплатой, гибким графиком и возможностью карьерного роста.",
+      formLabel: "💸 Начните уже сегодня!",
+    },
+    careerForm: {
+      formTitle: "Заполните короткую анкету, и мы свяжемся с вами!",
+      name: "Полное имя",
+      namePlaceholder: "Ваше полное имя",
+      email: "Электронная почта",
+      emailPlaceholder: "Ваш e-mail адрес",
+      phone: "Телефон",
+      phonePlaceholder: "Ваш номер телефона",
+      submitButton: "Я заинтересован в работе",
+    },
+    careerBanner: {
+      btnText: "Заполнить форму",
+    },
+
+    forms: {
+      submitting: "Отправка...",
       errorMessage: "Произошла ошибка при отправке сообщения.",
       successMessage: "Сообщение успешно отправлено!",
-      formTitle: "оставьте нам сообщение",
+    },
+    services: {
+      title: "все наши услуги",
+      desc: "От ежедневной уборки до особого ухода — услуги, созданные для вашего пространства.",
+    },
+    home: {
+      heroTitle: "Профессиональные клининговые услуги",
+      heroDesc:
+        "Каждое пространство заслуживает сиять — мы предоставляем надежные услуги по уборке, которые адаптируются к вашим потребностям, графику и ожиданиям.",
+    },
+    navbar: {
+      home: "Главная",
+      services: "Услуги",
+      about: "О нас",
+      contact: "Контакт",
+      orderCleaning: "Заказать уборку",
     },
   },
 };

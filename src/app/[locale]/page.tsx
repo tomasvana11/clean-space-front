@@ -1,5 +1,8 @@
-import { Locale } from "@/utils/i18n";
+import { Locale, t } from "@/utils/i18n";
 import { Title } from "@/components/Title";
+import { CareerBanner } from "@/components/CareerBanner";
+import { ContentWrapper } from "@/components/ContentWrapper";
+import { Hero } from "@/components/Hero";
 
 interface Props {
   params: Promise<{ locale: Locale }>;
@@ -9,16 +12,19 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
 
   return (
-    <div className="text-center">
-      <Title as="h1" locale={locale} className="text-gray-800 mb-8">
-        Welcome to Your Multilingual App
-      </Title>
-      <Title as="h3" locale={locale} className="text-gray-600">
-        Current locale: {locale}
-      </Title>
-      <a href="/en">English</a>
-      <a href="/cs">Czech</a>
-      <a href="/ru">Russian</a>
-    </div>
+    <>
+      <Hero
+        backgroundImage="/images/heroimage.png"
+        title={t(locale, "home.heroTitle")}
+        locale={locale}
+        titleAs="h1"
+        className="w-full"
+        blurred={false}
+      >
+        <p className="text-white/85 mt-4">{t(locale, "home.heroDesc")}</p>
+      </Hero>
+      <ContentWrapper>future content here</ContentWrapper>
+      <CareerBanner locale={locale} buttonHref={`/${locale}/career`} />
+    </>
   );
 }

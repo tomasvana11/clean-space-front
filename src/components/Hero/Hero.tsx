@@ -10,6 +10,7 @@ export const Hero = ({
   className = "",
   titleAs = "h1",
   minHeight = "min-h-[300px] md:min-h-[500px]",
+  blurred = true,
   overlay = true,
 }: HeroProps) => {
   return (
@@ -25,13 +26,17 @@ export const Hero = ({
         backgroundImage: `url('${backgroundImage}')`,
       }}
     >
-      {/* Overlay pro lepší čitelnost textu */}
       {overlay && (
-        <div className="absolute inset-0 bg-[#1A1A1A]/50 backdrop-blur-md"></div>
+        <div
+          className={`
+      absolute inset-0 bg-[#1A1A1A]/50 
+      ${blurred ? "backdrop-blur-md" : ""}
+    `}
+        ></div>
       )}
 
       {/* Obsah */}
-      <div className="relative z-10 w-full pt-[72px] md:pt-[96px] pb-[100px] md:pb-[150px]">
+      <div className="relative z-10 w-full pt-[96px] md:pt-[128px] pb-[128px] md:pb-[180px]">
         <ContentWrapper>
           <div className="text-center text-white py-10 md:py-14">
             <Title as={titleAs} locale={locale} className="text-white">

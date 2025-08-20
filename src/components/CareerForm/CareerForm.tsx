@@ -1,23 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ContactFormProps,
-  ContactFormState,
-  ContactFormData,
-} from "./ContactForm.types";
-import { submitContactForm } from "@/lib/contact-api";
+import { CareerFormProps, CareerFormState } from "./CareerForm.types";
+import { submitCareerForm } from "@/lib/career-api"; // Změněno
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { t } from "@/utils/i18n";
 
-export const ContactForm = ({ locale, className = "" }: ContactFormProps) => {
-  const [state, setState] = useState<ContactFormState>({
+// Odstraň starý submitCareerForm a použij import
+
+export const CareerForm = ({ locale, className = "" }: CareerFormProps) => {
+  const [state, setState] = useState<CareerFormState>({
     data: {
       name: "",
       email: "",
       phone: "",
-      message: "",
     },
     loading: false,
     success: false,
@@ -41,18 +38,18 @@ export const ContactForm = ({ locale, className = "" }: ContactFormProps) => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
 
     try {
-      await submitContactForm(state.data);
+      await submitCareerForm(state.data);
       setState((prev) => ({
         ...prev,
         loading: false,
         success: true,
-        data: { name: "", email: "", phone: "", message: "" },
+        data: { name: "", email: "", phone: "" }, // Reset form
       }));
 
-      // Reset success message after 20 seconds
+      // Reset success message after 5 seconds
       setTimeout(() => {
         setState((prev) => ({ ...prev, success: false }));
-      }, 20000);
+      }, 5000);
     } catch (error) {
       setState((prev) => ({
         ...prev,
@@ -76,59 +73,42 @@ export const ContactForm = ({ locale, className = "" }: ContactFormProps) => {
         </div>
       )}
 
-      {/* Name field */}
       <Input
         name="name"
         type="text"
-        label={t(locale, "contactForm.name")}
+        label={t(locale, "careerForm.name")}
         required
         value={state.data.name}
         variant="large"
         onChange={handleInputChange}
         disabled={state.loading}
-        placeholder={t(locale, "contactForm.namePlaceholder")}
+        placeholder={t(locale, "careerForm.namePlaceholder")}
       />
 
-      {/* Email field */}
       <Input
         name="email"
         type="email"
-        label={t(locale, "contactForm.email")}
+        label={t(locale, "careerForm.email")}
         required
         value={state.data.email}
         variant="large"
         onChange={handleInputChange}
         disabled={state.loading}
-        placeholder={t(locale, "contactForm.emailPlaceholder")}
+        placeholder={t(locale, "careerForm.emailPlaceholder")}
       />
 
-      {/* Phone field */}
       <Input
         name="phone"
         type="tel"
-        label={t(locale, "contactForm.phone")}
+        label={t(locale, "careerForm.phone")}
+        required
         value={state.data.phone}
         variant="large"
         onChange={handleInputChange}
         disabled={state.loading}
-        placeholder={t(locale, "contactForm.phonePlaceholder")}
+        placeholder={t(locale, "careerForm.phonePlaceholder")}
       />
 
-      {/* Message field */}
-      <Input
-        name="message"
-        type="textarea"
-        label={t(locale, "contactForm.message")}
-        required
-        value={state.data.message}
-        variant="large"
-        onChange={handleInputChange}
-        disabled={state.loading}
-        placeholder={t(locale, "contactForm.messagePlaceholder")}
-        rows={5}
-      />
-
-      {/* Submit button */}
       <Button
         type="submit"
         variant="primary"
@@ -140,7 +120,7 @@ export const ContactForm = ({ locale, className = "" }: ContactFormProps) => {
       >
         {state.loading
           ? t(locale, "forms.submitting")
-          : t(locale, "contactForm.submitButton")}
+          : t(locale, "careerForm.submitButton")}
       </Button>
       <div>
         <span className="text-[#FF0800] mr-1">*</span>
