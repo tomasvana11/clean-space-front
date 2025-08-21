@@ -85,7 +85,7 @@ export const NavBar = ({ locale }: NavBarProps) => {
 
             {/* CTA Button - Desktop */}
             <div className="hidden lg:block">
-              <Link href={`/${locale}/contact`}>
+              <Link href={`/${locale}/order`}>
                 <Button
                   variant="primary"
                   size="lg"
@@ -167,7 +167,7 @@ export const NavBar = ({ locale }: NavBarProps) => {
               {/* CTA Button - Mobile */}
               <div className="pt-4 border-t border-gray-200">
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/${locale}/order`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Button

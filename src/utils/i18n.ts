@@ -104,6 +104,59 @@ export const translations = {
       disclaimer:
         "*You can modify or cancel your regular cleaning plan anytime.",
     },
+    orderForm: {
+      // Steps
+      step1Title: "Select Services",
+      step2Title: "Location & Time",
+      step3Title: "Contact Info",
+      step4Title: "Payment",
+
+      // Step 1
+      rooms: "Rooms",
+      bathrooms: "Bathrooms",
+      basePrice: "Base price (1 room + 1 bathroom):",
+      additionalRooms: "Additional rooms",
+      additionalBathrooms: "Additional bathrooms",
+      additionalServices: "Additional services",
+      noAdditionalServices: "No additional services available",
+      selected: "Selected",
+
+      // Step 2
+      selectLocation: "Select location",
+      selectDate: "Select date",
+      selectTime: "Select time",
+      morning: "Morning (8:00 - 12:00)",
+      noon: "Noon (12:00 - 16:00)",
+      afternoon: "Afternoon (16:00 - 20:00)",
+      unsure: "We'll arrange later",
+
+      // Step 3
+      name: "Full name",
+      namePlaceholder: "Enter your full name",
+      email: "E-mail",
+      emailPlaceholder: "Enter your e-mail address",
+      phone: "Phone",
+      phonePlaceholder: "Enter your phone number",
+      address: "Cleaning address",
+      addressPlaceholder: "Enter the address where we'll clean",
+
+      // Step 4
+      paymentMethod: "Payment method",
+      bankTransfer: "Bank transfer",
+      card: "Card payment (coming soon)",
+
+      // Common
+      next: "Next",
+      back: "Back",
+      submit: "Submit order",
+      totalPrice: "Total price:",
+      submitting: "Submitting order...",
+      required: "Required field",
+
+      // Success/Error
+      orderSuccess: "Order submitted successfully!",
+      orderError: "Failed to submit order. Please try again.",
+    },
   },
   cs: {
     footer: {
@@ -198,6 +251,52 @@ export const translations = {
       oneTime: "Jednorázově",
       disclaimer:
         "*Váš pravidelný úklidový plán můžete kdykoli upravit či zrušit.",
+    },
+    orderForm: {
+      step1Title: "Výběr služeb",
+      step2Title: "Místo a čas",
+      step3Title: "Kontaktní údaje",
+      step4Title: "Platba",
+
+      rooms: "Pokoje",
+      bathrooms: "Koupelny",
+      basePrice: "Základní cena (1 pokoj + 1 koupelna):",
+      additionalRooms: "Další pokoje",
+      additionalBathrooms: "Další koupelny",
+      additionalServices: "Dodatečné služby",
+      noAdditionalServices: "Žádné dodatečné služby nejsou k dispozici",
+      selected: "Vybráno",
+
+      selectLocation: "Vyberte místo",
+      selectDate: "Vyberte datum",
+      selectTime: "Vyberte čas",
+      morning: "Dopoledne (8:00 - 12:00)",
+      noon: "Poledne (12:00 - 16:00)",
+      afternoon: "Odpoledne (16:00 - 20:00)",
+      unsure: "Domluvíme se později",
+
+      name: "Celé jméno",
+      namePlaceholder: "Zadejte své celé jméno",
+      email: "E-mail",
+      emailPlaceholder: "Zadejte svou e-mailovou adresu",
+      phone: "Telefon",
+      phonePlaceholder: "Zadejte své telefonní číslo",
+      address: "Adresa úklidu",
+      addressPlaceholder: "Zadejte adresu, kde budeme uklízet",
+
+      paymentMethod: "Způsob platby",
+      bankTransfer: "Bankovní převod",
+      card: "Platba kartou (připravujeme)",
+
+      next: "Další",
+      back: "Zpět",
+      submit: "Odeslat objednávku",
+      totalPrice: "Celková cena:",
+      submitting: "Odesílání objednávky...",
+      required: "Povinné pole",
+
+      orderSuccess: "Objednávka byla úspěšně odeslána!",
+      orderError: "Nepodařilo se odeslat objednávku. Zkuste to prosím znovu.",
     },
   },
   ru: {
@@ -294,6 +393,52 @@ export const translations = {
       oneTime: "Разово",
       disclaimer:
         "*Вы можете изменить или отменить план регулярной уборки в любое время.",
+    },
+    orderForm: {
+      step1Title: "Выбор услуг",
+      step2Title: "Место и время",
+      step3Title: "Контактные данные",
+      step4Title: "Оплата",
+
+      rooms: "Комнаты",
+      bathrooms: "Ванные",
+      basePrice: "Базовая цена (1 комната + 1 ванная):",
+      additionalRooms: "Дополнительные комнаты",
+      additionalBathrooms: "Дополнительные ванные",
+      additionalServices: "Дополнительные услуги",
+      noAdditionalServices: "Дополнительные услуги недоступны",
+      selected: "Выбрано",
+
+      selectLocation: "Выберите место",
+      selectDate: "Выберите дату",
+      selectTime: "Выберите время",
+      morning: "Утром (8:00 - 12:00)",
+      noon: "Днем (12:00 - 16:00)",
+      afternoon: "Вечером (16:00 - 20:00)",
+      unsure: "Договоримся позже",
+
+      name: "Полное имя",
+      namePlaceholder: "Введите ваше полное имя",
+      email: "Электронная почта",
+      emailPlaceholder: "Введите ваш e-mail адрес",
+      phone: "Телефон",
+      phonePlaceholder: "Введите ваш номер телефона",
+      address: "Адрес уборки",
+      addressPlaceholder: "Введите адрес, где мы будем убирать",
+
+      paymentMethod: "Способ оплаты",
+      bankTransfer: "Банковский перевод",
+      card: "Оплата картой (скоро)",
+
+      next: "Далее",
+      back: "Назад",
+      submit: "Отправить заказ",
+      totalPrice: "Общая стоимость:",
+      submitting: "Отправка заказа...",
+      required: "Обязательное поле",
+
+      orderSuccess: "Заказ успешно отправлен!",
+      orderError: "Не удалось отправить заказ. Попробуйте еще раз.",
     },
   },
 };
