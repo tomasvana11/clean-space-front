@@ -21,13 +21,8 @@ export function Step1Services({
   services,
   locale,
 }: Step1ServicesProps) {
-  console.log("Step1Services - formData:", formData);
-  console.log("Step1Services - services:", services);
-
   const handleRoomsChange = (change: number) => {
-    console.log("Rooms change:", change, "current:", formData.rooms);
     const newRooms = Math.max(1, formData.rooms + change);
-    console.log("New rooms:", newRooms);
     updateFormData({ rooms: newRooms });
   };
 
@@ -39,7 +34,6 @@ export function Step1Services({
   const handleServiceToggle = (service: Service) => {
     // Nepovol vybrat služby bez ceny
     if (!service.price) {
-      console.log("Service without price cannot be selected:", service.title);
       return;
     }
 
