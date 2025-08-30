@@ -15,15 +15,10 @@ export default async function OrderPage({ params }: Props) {
 
   return (
     <ContentWrapper className="pt-[72px] lg:pt-[96px]">
-      <Article>
-        <Title as="h1" locale={locale} className="py-8 text-center">
-          {t(locale, "navbar.orderCleaning")}
-        </Title>
-        <div className="p-4 bg-yellow-100 border border-yellow-400 rounded mb-4">
-          <p>Debug: OrderPage is rendering for locale: {locale}</p>
-        </div>
-        <OrderForm locale={locale} />
-      </Article>
+      {/*<Title as="h1" locale={locale} className="py-8 text-center">
+        {t(locale, "navbar.orderCleaning")}
+      </Title>*/}
+      <OrderForm locale={locale} />
     </ContentWrapper>
   );
 }

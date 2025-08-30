@@ -107,6 +107,7 @@ export const translations = {
     orderForm: {
       // Steps
       step1Title: "Select Services",
+      step1Subtitle: "How big is the apartment we will be cleaning?",
       step2Title: "Location & Time",
       step3Title: "Contact Info",
       step4Title: "Payment",
@@ -146,7 +147,7 @@ export const translations = {
       card: "Card payment (coming soon)",
 
       // Common
-      next: "Next",
+      next: "Continue",
       back: "Back",
       submit: "Submit order",
       totalPrice: "Total price:",
@@ -253,9 +254,10 @@ export const translations = {
         "*Váš pravidelný úklidový plán můžete kdykoli upravit či zrušit.",
     },
     orderForm: {
-      step1Title: "Výběr služeb",
-      step2Title: "Místo a čas",
-      step3Title: "Kontaktní údaje",
+      step1Title: "Výběr služby",
+      step1Subtitle: "Jak velký byt budeme uklízet?",
+      step2Title: "Datum a čas",
+      step3Title: "Adresa a kontakt",
       step4Title: "Platba",
 
       rooms: "Pokoje",
@@ -263,7 +265,7 @@ export const translations = {
       basePrice: "Základní cena (1 pokoj + 1 koupelna):",
       additionalRooms: "Další pokoje",
       additionalBathrooms: "Další koupelny",
-      additionalServices: "Dodatečné služby",
+      additionalServices: "Jaké služby navíc se vám budou hodit?",
       noAdditionalServices: "Žádné dodatečné služby nejsou k dispozici",
       selected: "Vybráno",
 
@@ -288,7 +290,7 @@ export const translations = {
       bankTransfer: "Bankovní převod",
       card: "Platba kartou (připravujeme)",
 
-      next: "Další",
+      next: "Pokračovat",
       back: "Zpět",
       submit: "Odeslat objednávku",
       totalPrice: "Celková cena:",
@@ -396,6 +398,7 @@ export const translations = {
     },
     orderForm: {
       step1Title: "Выбор услуг",
+      step1Subtitle: "Какой площади квартира, которую мы будем убирать?",
       step2Title: "Место и время",
       step3Title: "Контактные данные",
       step4Title: "Оплата",

@@ -1,3 +1,4 @@
+/*
 "use client";
 
 import React from "react";
@@ -38,7 +39,6 @@ export function Step3CustomerInfo({
       </h2>
 
       <div className="space-y-6">
-        {/* Name */}
         <Input
           name="name"
           type="text"
@@ -50,7 +50,6 @@ export function Step3CustomerInfo({
           placeholder={t(locale, "orderForm.namePlaceholder")}
         />
 
-        {/* Email */}
         <Input
           name="email"
           type="email"
@@ -62,7 +61,6 @@ export function Step3CustomerInfo({
           placeholder={t(locale, "orderForm.emailPlaceholder")}
         />
 
-        {/* Phone */}
         <Input
           name="phone"
           type="tel"
@@ -74,7 +72,6 @@ export function Step3CustomerInfo({
           placeholder={t(locale, "orderForm.phonePlaceholder")}
         />
 
-        {/* Address */}
         <Input
           name="address"
           type="textarea"
@@ -95,7 +92,6 @@ export function Step3CustomerInfo({
         </span>
       </div>
 
-      {/* Navigation Buttons */}
       <div className="flex justify-between">
         <Button
           type="button"
@@ -117,6 +113,99 @@ export function Step3CustomerInfo({
         >
           {t(locale, "orderForm.next")}
         </Button>
+      </div>
+    </div>
+  );
+}
+*/
+
+"use client";
+
+import React from "react";
+import { OrderFormData } from "@/lib/types/order";
+import { Locale, t } from "@/utils/i18n";
+import { Input } from "@/components/Input";
+
+interface Step3CustomerInfoProps {
+  formData: OrderFormData;
+  updateFormData: (updates: Partial<OrderFormData>) => void;
+  locale: Locale;
+}
+
+export function Step3CustomerInfo({
+  formData,
+  updateFormData,
+  locale,
+}: Step3CustomerInfoProps) {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    updateFormData({ [name]: value });
+  };
+
+  return (
+    <div className="space-y-6 bg-white rounded-xl p-6 w-full">
+      <div className="space-y-6">
+        {/* Name */}
+        <Input
+          name="name"
+          type="text"
+          label={t(locale, "orderForm.name")}
+          required
+          value={formData.name}
+          variant="large"
+          onChange={handleInputChange}
+          placeholder={t(locale, "orderForm.namePlaceholder")}
+          className="border !border-gray-300 !bg-gray-50 !text-gray-900"
+        />
+
+        {/* Email */}
+        <Input
+          name="email"
+          type="email"
+          label={t(locale, "orderForm.email")}
+          required
+          value={formData.email}
+          variant="large"
+          onChange={handleInputChange}
+          placeholder={t(locale, "orderForm.emailPlaceholder")}
+          className="border !border-gray-300 !bg-gray-50 !text-gray-900"
+        />
+
+        {/* Phone */}
+        <Input
+          name="phone"
+          type="tel"
+          label={t(locale, "orderForm.phone")}
+          required
+          value={formData.phone}
+          variant="large"
+          onChange={handleInputChange}
+          placeholder={t(locale, "orderForm.phonePlaceholder")}
+          className="border !border-gray-300 !bg-gray-50 !text-gray-900"
+        />
+
+        {/* Address */}
+        <Input
+          name="address"
+          type="textarea"
+          label={t(locale, "orderForm.address")}
+          required
+          value={formData.address}
+          variant="large"
+          onChange={handleInputChange}
+          placeholder={t(locale, "orderForm.addressPlaceholder")}
+          rows={1}
+          className="border !border-gray-300 !bg-gray-50 !text-gray-900"
+        />
+      </div>
+
+      <div>
+        <span className="text-red-500 mr-1">*</span>
+        <span className="text-gray-700 text-sm">
+          {t(locale, "orderForm.required")}
+        </span>
       </div>
     </div>
   );

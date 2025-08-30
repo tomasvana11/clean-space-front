@@ -71,12 +71,12 @@ export const NavBar = ({ locale }: NavBarProps) => {
           {/* Right side - CTA Button (Desktop) + Mobile menu button */}
           <div className="flex items-center space-x-4">
             {/* Navigation links (Desktop) */}
-            <div className="hidden lg:flex space-x-8">
+            <div className="hidden lg:flex space-x-8 pr-4">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-gray-300 hover:text-blue-400 font-medium transition-colors"
+                  className="text-gray-300 hover:text-[#FFA000] font-medium transition-colors"
                 >
                   {item.label}
                 </Link>
