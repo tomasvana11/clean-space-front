@@ -350,11 +350,24 @@ export function Step1Services({
                 >
                   {service.image && (
                     <div className="relative mx-auto h-24 w-24 mb-3 overflow-hidden">
+                      {/*
                       <img
                         src={`${
                           process.env.NEXT_PUBLIC_STRAPI_URL ||
                           "http://localhost:1337"
                         }${service.image.url}`}
+                        alt={service.image.alternativeText || service.title}
+                        className="w-full h-full object-cover h-24 w-24"
+                      />*/}
+                      <img
+                        src={
+                          service.image.url.startsWith("http")
+                            ? service.image.url
+                            : `${
+                                process.env.NEXT_PUBLIC_STRAPI_URL ||
+                                "http://localhost:1337"
+                              }${service.image.url}`
+                        }
                         alt={service.image.alternativeText || service.title}
                         className="w-full h-full object-cover h-24 w-24"
                       />

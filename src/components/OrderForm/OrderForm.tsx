@@ -269,7 +269,8 @@ export function OrderForm({ locale }: OrderFormProps) {
         </div>
         <div className="lg:hidden">
           <div className="flex items-center justify-center p-3 bg-white text-gray-800 ring-1 ring-gray-200 font-semibold rounded-sm">
-            Krok {currentStep} z 4 -{" "}
+            {t(locale, "orderForm.stepStep")} {currentStep}{" "}
+            {t(locale, "orderForm.stepOf")} 4 -{" "}
             {t(locale, `orderForm.step${currentStep}Title`)}
           </div>
         </div>

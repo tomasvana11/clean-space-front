@@ -94,8 +94,10 @@ export const Footer = ({ locale }: FooterProps) => {
                   locale={locale}
                   variant="small"
                   icon="/icons/phone_duo.svg"
-                  text="+357 97741469"
-                  href="tel:+35797741469"
+                  text={t(locale, "contact.mainPhone")}
+                  href={t(locale, "contact.mainPhoneHref")}
+                  //text="+357 97741469"
+                  //href="tel:+35797741469"
                   className="text-[#372900] rounded-lg hover:bg-white transition-colors"
                 />
                 <ContactBox

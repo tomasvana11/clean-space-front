@@ -46,7 +46,7 @@ export default async function ContactPage({ params }: Props) {
                 text="+357 99268665"
                 title={t(locale, "contact.rusNumberTitle")}
                 description={t(locale, "contact.rusNumber")}
-                href="tel:++35799268665"
+                href="tel:+35799268665"
                 className="text-[#372900]"
                 locale={locale}
               />

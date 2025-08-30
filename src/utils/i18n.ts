@@ -38,6 +38,9 @@ export const translations = {
       rusNumberTitle: "Phone - Russian",
       rusNumber: "Every day 8:00 - 20:00",
       emailTitle: "E-mail",
+
+      mainPhone: "+357 97741469",
+      mainPhoneHref: "tel:+35797741469",
     },
     contactForm: {
       name: "Name",
@@ -111,6 +114,9 @@ export const translations = {
       step2Title: "Location & Time",
       step3Title: "Contact Info",
       step4Title: "Payment",
+
+      stepStep: "Step",
+      stepOf: "from",
 
       step1: "Choose the services you need",
       step2: "Select the time that suits you",
@@ -192,6 +198,8 @@ export const translations = {
       rusNumberTitle: "Telefon - ruština",
       rusNumber: "Každý den 8:00 - 20:00",
       emailTitle: "E-mail",
+      mainPhone: "+357 97741469",
+      mainPhoneHref: "tel:+35797741469",
     },
     contactForm: {
       name: "Jméno",
@@ -270,6 +278,9 @@ export const translations = {
       step3: "Doplňte vaše osobní údaje",
       step4: "Jak zaplatíte?",
 
+      stepStep: "Krok",
+      stepOf: "z",
+
       rooms: "Pokoje",
       bathrooms: "Koupelny",
       basePrice: "Základní cena (1 pokoj + 1 koupelna):",
@@ -339,6 +350,8 @@ export const translations = {
       rusNumberTitle: "Телефон - русский язык",
       rusNumber: "Каждый день 8:00 - 20:00",
       emailTitle: "Электронная почта",
+      mainPhone: "+357 99268665",
+      mainPhoneHref: "tel:+35799268665",
     },
     contactForm: {
       name: "Имя",
@@ -412,6 +425,9 @@ export const translations = {
       step2Title: "Место и время",
       step3Title: "Контактные данные",
       step4Title: "Оплата",
+
+      stepStep: "Шаг",
+      stepOf: "из",
 
       step1: "Выберите нужные вам услуги",
       step2: "Выберите удобное для вас время",
