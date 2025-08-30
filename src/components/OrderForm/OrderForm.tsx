@@ -275,11 +275,11 @@ export function OrderForm({ locale }: OrderFormProps) {
         </div>
       </div>
 
-      <Title as="h3" className="text-center text-gray-800 mb-8">
-        {currentStep === 1 && <span>Zvolte si, jaké služby potřebujete</span>}
-        {currentStep === 2 && <span>Zvolte si, jaký čas vám vyhovuje</span>}
-        {currentStep === 3 && <span>Doplňte vaše osobní údaje</span>}
-        {currentStep === 4 && <span>Jak zaplatíte?</span>}
+      <Title as="h3" className="text-center text-gray-800 mb-8" locale={locale}>
+        {currentStep === 1 && <span>{t(locale, "orderForm.step1")}</span>}
+        {currentStep === 2 && <span>{t(locale, "orderForm.step2")}</span>}
+        {currentStep === 3 && <span>{t(locale, "orderForm.step3")}</span>}
+        {currentStep === 4 && <span>{t(locale, "orderForm.step4")}</span>}
       </Title>
       <div className="w-full flex flex-col lg:flex-row gap-8 items-start">
         <div className="flex-1 w-full">{renderStep()}</div>

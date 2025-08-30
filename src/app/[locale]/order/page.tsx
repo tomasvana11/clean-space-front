@@ -15,9 +15,6 @@ export default async function OrderPage({ params }: Props) {
 
   return (
     <ContentWrapper className="pt-[72px] lg:pt-[96px]">
-      {/*<Title as="h1" locale={locale} className="py-8 text-center">
-        {t(locale, "navbar.orderCleaning")}
-      </Title>*/}
       <OrderForm locale={locale} />
     </ContentWrapper>
   );

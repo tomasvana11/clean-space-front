@@ -112,6 +112,11 @@ export const translations = {
       step3Title: "Contact Info",
       step4Title: "Payment",
 
+      step1: "Choose the services you need",
+      step2: "Select the time that suits you",
+      step3: "Enter your personal information",
+      step4: "How will you pay?",
+
       // Step 1
       rooms: "Rooms",
       bathrooms: "Bathrooms",
@@ -260,6 +265,11 @@ export const translations = {
       step3Title: "Adresa a kontakt",
       step4Title: "Platba",
 
+      step1: "Zvolte si, jaké služby potřebujete",
+      step2: "Zvolte si, jaký čas vám vyhovuje",
+      step3: "Doplňte vaše osobní údaje",
+      step4: "Jak zaplatíte?",
+
       rooms: "Pokoje",
       bathrooms: "Koupelny",
       basePrice: "Základní cena (1 pokoj + 1 koupelna):",
@@ -403,6 +413,10 @@ export const translations = {
       step3Title: "Контактные данные",
       step4Title: "Оплата",
 
+      step1: "Выберите нужные вам услуги",
+      step2: "Выберите удобное для вас время",
+      step3: "Введите ваши персональные данные",
+      step4: "Как вы будете платить?",
       rooms: "Комнаты",
       bathrooms: "Ванные",
       basePrice: "Базовая цена (1 комната + 1 ванная):",

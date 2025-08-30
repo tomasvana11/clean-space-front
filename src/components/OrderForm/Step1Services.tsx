@@ -253,7 +253,11 @@ export function Step1Services({
 
   return (
     <div className="space-y-6 bg-white rounded-xl p-6 w-full">
-      <Title as="h4" className="text-[#372900] !text-[20px] lg:!text-[24px]">
+      <Title
+        as="h4"
+        className="text-[#372900] !text-[20px] lg:!text-[24px]"
+        locale={locale}
+      >
         {t(locale, "orderForm.step1Subtitle")}
       </Title>
 
@@ -315,6 +319,7 @@ export function Step1Services({
         <Title
           as="h4"
           className="text-[#372900] !text-[20px] lg:!text-[24px] pb-6"
+          locale={locale}
         >
           {t(locale, "orderForm.additionalServices")}
         </Title>
@@ -358,6 +363,7 @@ export function Step1Services({
                   <Title
                     as="h4"
                     className="font-semibold text-center text-[#372900] mb-2"
+                    locale={locale}
                   >
                     {service.title}
                   </Title>
@@ -365,6 +371,7 @@ export function Step1Services({
                     <Title
                       as="h5"
                       className="text-[#372900] text-center font-semibold bg-[#FFD149] rounded-md p-2 inline-block"
+                      locale={locale}
                     >
                       {service.price ? `${service.price} EUR` : "Cena na dotaz"}
                     </Title>

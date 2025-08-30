@@ -267,7 +267,7 @@ export function Step4Payment({
       value: "card",
       label: t(locale, "orderForm.card"),
       icon: "/icons/credit-card.svg",
-      disabled: false,
+      disabled: true,
     },
   ];
 
