@@ -124,6 +124,11 @@ export const translations = {
       heroTitle: "Professional cleaning services",
       heroDesc:
         "Because every space deserves to shine – we deliver trusted cleaning services that adapt to your needs, schedule, and expectations.",
+      ms1: "We will clean the living room",
+      ms2: "We will clean the hallways",
+      ms3: "We will clean the kitchen",
+      ms4: "We will clean the balcony / terrace",
+      ms5: "We will clean the bathroom",
     },
     navbar: {
       about: "About us",
@@ -318,6 +323,11 @@ export const translations = {
       heroTitle: "Profesionální úklidové služby",
       heroDesc:
         "Protože každý prostor si zaslouží zářit – poskytujeme spolehlivé úklidové služby, které se přizpůsobí vašim potřebám, rozvrhu i očekáváním.",
+      ms1: "Uklidíme v obývacím pokoji",
+      ms2: "Uklidíme chodby, haly",
+      ms3: "Uklidíme v kuchyni",
+      ms4: "Uklidíme na balkóně / terase",
+      ms5: "Uklidíme v koupelně",
     },
     navbar: {
       about: "O nás",
@@ -507,6 +517,11 @@ export const translations = {
       heroTitle: "Профессиональные клининговые услуги",
       heroDesc:
         "Каждое пространство заслуживает сиять — мы предоставляем надежные услуги по уборке, которые адаптируются к вашим потребностям, графику и ожиданиям.",
+      ms1: "Мы уберём в гостиной",
+      ms2: "Мы уберём в коридорах, холлах",
+      ms3: "Мы уберём на кухне",
+      ms4: "Мы уберём на балконе / террасе",
+      ms5: "Мы уберём в ванной комнате",
     },
     navbar: {
       about: "О нас",

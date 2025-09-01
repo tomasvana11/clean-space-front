@@ -37,7 +37,7 @@ export const PricingSection = ({
 
   return (
     <ContentWrapperSmall
-      className={`rounded-xl py-8 md:py-12 px-6 mb-8 bg-[#FFF5D7] ${className}`}
+      className={`rounded-xl py-8 md:py-12 px-6 bg-[#FFF5D7] ${className}`}
     >
       {/* Header */}
       <div className="text-center mb-8">
@@ -50,7 +50,7 @@ export const PricingSection = ({
       </div>
 
       {/* Pricing Options */}
-      <div className="bg-white rounded-xl p-6 md:p-8 mb-6 flex justify-center">
+      <div className="bg-white rounded-sm p-6 md:p-8 mb-6 flex justify-center max-w-[800px] mx-auto">
         <div className="grid grid-cols-2 md:flex  gap-8">
           {pricingOptions.map((option, index) => (
             <div key={index} className="flex flex-col items-center text-center">

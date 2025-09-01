@@ -28,10 +28,16 @@ export const CareerBanner = ({
       {/* Content */}
       <div className="relative z-10">
         <div className="text-center flex flex-col gap-2">
-          <Title as="h3" locale={locale} className="text-white">
+          <Title
+            as="h3"
+            locale={locale}
+            className="text-white max-w-[800px] mx-auto"
+          >
             {t(locale, "career.heroTitle")}
           </Title>
-          <p className="opacity-85">{t(locale, "career.heroDesc")}</p>
+          <p className="opacity-85 max-w-[800px] mx-auto">
+            {t(locale, "career.heroDesc")}
+          </p>
         </div>
 
         <div className="flex justify-center pt-6">
