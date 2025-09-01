@@ -29,6 +29,42 @@ export const translations = {
       companyAddressLn2: "4103, Limassol - Cyprus",
       companyId: "HE 472079",
     },
+    cleaningTabs: {
+      title: "What is included in the services?",
+      bathroom: {
+        title: "Bathroom cleaning",
+        shower: "Cleaning of bathtub, shower, and sinks",
+        paper: "Refilling toilet paper (if available)",
+        toilet: "Disinfection of toilets and taps",
+        floor: "Mopping the floor",
+        mirror: "Wiping tiles and mirrors",
+        things: "Arranging items",
+      },
+      kitchen: {
+        title: "Kitchen cleaning",
+        workspace: "Wiping all work surfaces",
+        drawer: "Wiping kitchen cabinets from the outside",
+        bin: "Taking out the trash and replacing the bag",
+        floor: "Mopping the floor",
+        things: "Arranging chairs and general tidying",
+      },
+      hallway: {
+        title: "Hallway cleaning",
+        floor: "Mopping the floor",
+        clothes: "Arranging shoes and clothes",
+        flat: "Wiping accessible surfaces (shoe racks, mirrors, cabinets)",
+        doors: "Wiping fingerprints from handles and switches",
+      },
+      room: {
+        title: "Room cleaning",
+        floor: "Vacuuming or mopping the floor",
+        flat: "Dusting and wiping vertical surfaces (windowsills, shelves, cabinets, tables)",
+        handle:
+          "Wiping handles, switches, railings, and other accessible surfaces",
+        pillow: "Arranging items (e.g., pillows, throws, blankets)",
+      },
+    },
+
     contact: {
       heroTitle: "Contact us",
       heroDesc:
@@ -189,6 +225,41 @@ export const translations = {
       companyAddressLn2: "4103, Limassol - Kypr",
       companyId: "HE 472079",
     },
+    cleaningTabs: {
+      title: "Co je ve službách zahrnuto?",
+      bathroom: {
+        title: "Úklid koupelny",
+        shower: "Vyčištění vany, sprchy a umyvadel",
+        paper: "Doplňování toaletního papíru (pokud je k dispozici)",
+        toilet: "Dezinfekce toalet a baterií",
+        floor: "Vytření podlahy",
+        mirror: "Otření obkladů a zrcadel",
+        things: "Uspořádání věcí",
+      },
+      kitchen: {
+        title: "Úklid kuchyně",
+        workspace: "Otření všech pracovních ploch",
+        drawer: "Otření kuchyňských skříněk zvenku",
+        bin: "Vynesení odpadků a výměna sáčku",
+        floor: "Vytření podlahy",
+        things: "Urovnání židlí a běžné uspořádání věcí",
+      },
+      hallway: {
+        title: "Úklid chodby",
+        floor: "Vytření podlahy",
+        clothes: "Urovnání obuvi a oděvů",
+        flat: "Otření dostupných ploch (botníky, zrcadla, skříňky)",
+        doors: "Setření otisků z klik a vypínačů",
+      },
+      room: {
+        title: "Úklid pokoje",
+        floor: "Vysátí nebo vytření podlah",
+        flat: "Otření prachu a svislých ploch (parapety, police, skříně, stoly)",
+        handle: "Otření klik, vypínačů, madel a dalších dostupných ploch",
+        pillow: "Urovnání věcí (např. polštáře, přehozy, deky)",
+      },
+    },
+
     contact: {
       heroTitle: "Kontaktujte nás",
       heroDesc:
@@ -341,6 +412,42 @@ export const translations = {
       companyAddressLn2: "4103, Лимассол - Кипр",
       companyId: "HE 472079",
     },
+    cleaningTabs: {
+      title: "Что включено в услуги?",
+      bathroom: {
+        title: "Уборка ванной комнаты",
+        shower: "Чистка ванны, душа и раковин",
+        paper: "Пополнение туалетной бумаги (если есть)",
+        toilet: "Дезинфекция унитазов и смесителей",
+        floor: "Мытьё пола",
+        mirror: "Протирание плитки и зеркал",
+        things: "Приведение вещей в порядок",
+      },
+      kitchen: {
+        title: "Уборка кухни",
+        workspace: "Протирание всех рабочих поверхностей",
+        drawer: "Протирание кухонных шкафов снаружи",
+        bin: "Вынос мусора и замена пакета",
+        floor: "Мытьё пола",
+        things: "Приведение стульев и вещей в порядок",
+      },
+      hallway: {
+        title: "Уборка прихожей",
+        floor: "Мытьё пола",
+        clothes: "Приведение обуви и одежды в порядок",
+        flat: "Протирание доступных поверхностей (обувницы, зеркала, шкафы)",
+        doors: "Протирание следов от ручек и выключателей",
+      },
+      room: {
+        title: "Уборка комнаты",
+        floor: "Пылесос или мытьё пола",
+        flat: "Протирание пыли и вертикальных поверхностей (подоконники, полки, шкафы, столы)",
+        handle:
+          "Протирание ручек, выключателей, перил и других доступных поверхностей",
+        pillow: "Приведение вещей в порядок (например, подушки, пледы, одеяла)",
+      },
+    },
+
     contact: {
       heroTitle: "Живая поддержка",
       heroDesc:
