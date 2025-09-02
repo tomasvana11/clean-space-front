@@ -35,6 +35,8 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 hover:cursor-pointer",
   blank:
     "bg-transparent text-gray-600 hover:bg-gray-100 focus:ring-gray-500 hover:cursor-pointer",
+  smallLink:
+    "text-sm text-gray-500 hover:underline inline-block transition-colors duration-200",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

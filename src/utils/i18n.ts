@@ -122,6 +122,7 @@ export const translations = {
     services: {
       title: "All our services",
       desc: "From everyday cleaning to special care – services built around your space.",
+      link: "What's included in the base price?",
     },
     home: {
       heroTitle: "Professional cleaning services",
@@ -324,6 +325,7 @@ export const translations = {
     services: {
       title: "Všechny naše služby",
       desc: "Od každodenního úklidu po speciální péči – služby šité na míru vašemu prostoru.",
+      link: "Co je zahrnuto v základní ceně?",
     },
     home: {
       heroTitle: "Profesionální úklidové služby",
@@ -521,6 +523,7 @@ export const translations = {
     services: {
       title: "все наши услуги",
       desc: "От ежедневной уборки до особого ухода — услуги, созданные для вашего пространства.",
+      link: "Что включено в базовую цену?",
     },
     home: {
       heroTitle: "Профессиональные клининговые услуги",

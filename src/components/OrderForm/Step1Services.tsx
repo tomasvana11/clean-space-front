@@ -30,6 +30,11 @@ export function Step1Services({
     updateFormData({ bathrooms: newBathrooms });
   };
 
+  // NOVÁ FUNKCE pro eco-friendly
+  const handleEcoToggle = () => {
+    updateFormData({ eco: !formData.eco });
+  };
+
   const handleServiceToggle = (service: Service) => {
     if (!service.price) {
       return;
@@ -109,6 +114,49 @@ export function Step1Services({
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="bg-white p-6 rounded-lg border border-gray-200">
+        <label className="flex items-center cursor-pointer">
+          <input
+            type="checkbox"
+            checked={formData.eco}
+            onChange={handleEcoToggle}
+            className="sr-only"
+          />
+          <div
+            className={`flex-shrink-0 w-6 h-6 border-2 rounded flex items-center justify-center mr-3 transition-colors ${
+              formData.eco
+                ? "bg-[#FFA000] border-[#FFA000]"
+                : "border-gray-300 bg-white"
+            }`}
+          >
+            {formData.eco && (
+              <svg
+                className="w-4 h-4 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            )}
+          </div>
+          <div className="flex-1">
+            <span className="text-sm font-semibold">♻️ </span>
+            <span className="text-sm font-semibold text-gray-700">
+              {locale === "cs"
+                ? "Chci úklid pouze pomocí ekologických prostředků"
+                : locale === "ru"
+                ? "Я хочу уборку только экологически чистыми средствами"
+                : "I want to get my place cleaned with eco-friendly only products"}
+            </span>
+            <div className="text-xs text-gray-500 mt-1">+50 EUR</div>
+          </div>
+        </label>
       </div>
 
       <div>
@@ -204,6 +252,7 @@ import { OrderFormData } from "@/lib/types/order";
 import { Service } from "@/lib/types/strapi";
 import { Locale, t } from "@/utils/i18n";
 import { Title } from "../Title";
+import { Button } from "../Button";
 
 interface Step1ServicesProps {
   formData: OrderFormData;
@@ -218,6 +267,38 @@ export function Step1Services({
   services,
   locale,
 }: Step1ServicesProps) {
+  // Czech declension for rooms
+  const getRoomText = (count: number) => {
+    if (locale === "cs") {
+      if (count === 1) return "pokoj";
+      if (count >= 2 && count <= 4) return "pokoje";
+      return "pokojů";
+    }
+    if (locale === "ru") {
+      if (count === 1) return "комната";
+      if (count >= 2 && count <= 4) return "комнаты";
+      return "комнат";
+    }
+    // English
+    return count === 1 ? "room" : "rooms";
+  };
+
+  // Czech declension for bathrooms
+  const getBathroomText = (count: number) => {
+    if (locale === "cs") {
+      if (count === 1) return "koupelna";
+      if (count >= 2 && count <= 4) return "koupelny";
+      return "koupelen";
+    }
+    if (locale === "ru") {
+      if (count === 1) return "ванная";
+      if (count >= 2 && count <= 4) return "ванные";
+      return "ванных";
+    }
+    // English
+    return count === 1 ? "bathroom" : "bathrooms";
+  };
+
   const handleRoomsChange = (change: number) => {
     const newRooms = Math.max(1, formData.rooms + change);
     updateFormData({ rooms: newRooms });
@@ -264,57 +345,71 @@ export function Step1Services({
         {t(locale, "orderForm.step1Subtitle")}
       </Title>
 
-      {/* Rooms and Bathrooms */}
-      <div className="grid md:grid-cols-2 gap-6 max-w-[500px]">
-        {/* Rooms */}
-        <div className="bg-white p-6 rounded-lg border border-gray-200">
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
-            {t(locale, "orderForm.rooms")}
-          </label>
-          <div className="flex items-center justify-between">
-            <button
-              type="button"
-              onClick={() => handleRoomsChange(-1)}
-              disabled={formData.rooms <= 1}
-              className="w-8 h-12 pb-1 rounded-xs cursor-pointer bg-[#FFF5D7] hover:bg-[#FFECB5] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-lg !text-[#372900] font-semibold"
-            >
-              −
-            </button>
-            <span className="text-xl font-semibold">{formData.rooms}</span>
-            <button
-              type="button"
-              onClick={() => handleRoomsChange(1)}
-              className="w-8 h-12 pb-1 rounded-xs cursor-pointer bg-[#FFF5D7] hover:bg-[#FFECB5] text-white flex items-center justify-center text-lg !text-[#372900] font-semibold"
-            >
-              +
-            </button>
+      <div className="flex flex-col gap-2">
+        {/* Rooms and Bathrooms - New Compact Format */}
+        <div className="bg-white p-4 md:p-6 rounded-lg border border-gray-200">
+          <div className="bg-white rounded-xl md:rounded-sm p-2 flex md:inline-flex mx-auto ">
+            <div className="flex w-full flex-col md:flex-row items-center justify-between gap-4 md:gap-2 md:gap-6">
+              {/* Rooms Section */}
+              <div className="flex items-center gap-2 md:gap-3">
+                <button
+                  type="button"
+                  onClick={() => handleRoomsChange(-1)}
+                  disabled={formData.rooms <= 1}
+                  className="w-8 h-12 pb-1 rounded-xs cursor-pointer bg-[#FFEBB0] hover:bg-[#FFE494] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-lg !text-[#372900] font-semibold"
+                >
+                  −
+                </button>
+                <div className="text-center min-w-[80px] w-[128px] sm:min-w-[100px]">
+                  <span className="text-base sm:text-lg font-semibold text-gray-700">
+                    {formData.rooms} {getRoomText(formData.rooms)}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleRoomsChange(1)}
+                  className="w-8 h-12 pb-1 rounded-xs cursor-pointer bg-[#FFEBB0] hover:bg-[#FFE494] transition-colors duration-200 text-white flex items-center justify-center text-lg !text-[#372900] font-semibold"
+                >
+                  +
+                </button>
+              </div>
+
+              {/* Vertical/Horizontal Divider */}
+              <div className="w-full h-px md:h-6 md:w-px bg-gray-300 md:bg-gray-400"></div>
+
+              {/* Bathrooms Section */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                <button
+                  type="button"
+                  onClick={() => handleBathroomsChange(-1)}
+                  disabled={formData.bathrooms <= 1}
+                  className="w-8 h-12 pb-1 rounded-xs cursor-pointer bg-[#FFEBB0] hover:bg-[#FFE494] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-lg !text-[#372900] font-semibold"
+                >
+                  −
+                </button>
+                <div className="text-center min-w-[80px] w-[128px] sm:min-w-[100px]">
+                  <span className="text-base sm:text-lg font-semibold text-gray-700">
+                    {formData.bathrooms} {getBathroomText(formData.bathrooms)}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleBathroomsChange(1)}
+                  className="w-8 h-12 pb-1 rounded-xs cursor-pointer bg-[#FFEBB0] hover:bg-[#FFE494] transition-colors duration-200 text-white flex items-center justify-center text-lg !text-[#372900] font-semibold"
+                >
+                  +
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bathrooms */}
-        <div className="bg-white p-6 rounded-lg border border-gray-200">
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
-            {t(locale, "orderForm.bathrooms")}
-          </label>
-          <div className="flex items-center justify-between">
-            <button
-              type="button"
-              onClick={() => handleBathroomsChange(-1)}
-              disabled={formData.bathrooms <= 1}
-              className="w-8 h-12 pb-1 rounded-xs cursor-pointer bg-[#FFF5D7] hover:bg-[#FFECB5] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-lg !text-[#372900] font-semibold"
-            >
-              −
-            </button>
-            <span className="text-xl font-semibold">{formData.bathrooms}</span>
-            <button
-              type="button"
-              onClick={() => handleBathroomsChange(1)}
-              className="w-8 h-12 pb-1 cursor-pointer rounded-xs bg-[#FFF5D7] hover:bg-[#FFECB5] text-white flex items-center justify-center text-lg !text-[#372900] font-semibold"
-            >
-              +
-            </button>
-          </div>
-        </div>
+        <a
+          href={`/${locale}/services`}
+          className="text-sm text-gray-500 hover:underline inline-flex transition-colors font-medium cursor-pointer duration-200"
+        >
+          {t(locale, "services.link")}
+        </a>
       </div>
 
       {/* NOVÉ ECO-FRIENDLY CHECKBOX */}

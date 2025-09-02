@@ -5,7 +5,8 @@ export type ButtonVariant =
   | "secondary"
   | "outline"
   | "danger"
-  | "blank";
+  | "blank"
+  | "smallLink";
 export type ButtonSize = "sm" | "md" | "lg";
 
 // Základní props
