@@ -50,6 +50,7 @@ export interface OrderFormData {
 
   // Calculated
   totalPrice: number;
+  eco: boolean;
 
   // Generated after order creation
   displayTitle?: string;

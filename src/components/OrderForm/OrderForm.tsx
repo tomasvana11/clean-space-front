@@ -288,7 +288,22 @@ export function OrderForm({ locale }: OrderFormProps) {
         {/* Right sidebar with price and navigation */}
         <div className="space-y-6 bg-white rounded-xl p-6 w-full lg:max-w-90 xl:w-90 shadow-[0px_4px_40px_0px_rgba(70,70,86,0.1)]">
           {/* Total price display */}
+
           <div className="text-sm text-[#372900] space-y-1">
+            <div>
+              {formData.eco && (
+                <div className="py-1 px-2 font-semibold rounded-lg bg-green-100 text-green-600 inline-flex mb-2">
+                  <span>♻️&nbsp;</span>
+                  <span>
+                    {locale === "cs"
+                      ? "Ekologicky"
+                      : locale === "ru"
+                      ? "Экологически чистые"
+                      : "Eco-friendly"}
+                  </span>
+                </div>
+              )}
+            </div>
             <Title as="h4" locale={locale}>
               {t(locale, "orderForm.rooms")}: {formData.rooms},{" "}
               {t(locale, "orderForm.bathrooms")}: {formData.bathrooms}
