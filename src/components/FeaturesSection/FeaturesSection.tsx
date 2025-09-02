@@ -2,16 +2,17 @@ import React from "react";
 import { Locale } from "@/utils/i18n";
 import { Title } from "../Title";
 
-interface FeatureItem {
+export interface FeatureItem {
   emoji: string;
   title: string;
   description: string;
 }
 
-interface FeaturesSectionProps {
+export interface FeaturesSectionProps {
   locale: Locale;
   className?: string;
   features?: FeatureItem[];
+  variant?: "dark" | "light";
 }
 
 // Překlady
@@ -65,7 +66,7 @@ const translations: Record<Locale, FeatureItem[]> = {
       emoji: "🌍",
       title: "Multilingual communication",
       description:
-        "We speak English, Czech, and Russian, so we’re accessible to a wide range of clients in Cyprus.",
+        "We speak English, Czech, and Russian, so we're accessible to a wide range of clients in Cyprus.",
     },
   ],
   ru: [
@@ -100,23 +101,45 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
   locale,
   className = "",
   features,
+  variant = "dark",
 }) => {
   const defaultFeatures = translations[locale] || translations["en"];
   const displayFeatures = features || defaultFeatures;
 
+  // Definování stylů pro jednotlivé varianty
+  const getCardStyles = () => {
+    if (variant === "light") {
+      return {
+        className: "p-6 bg-white border border-gray-200 rounded-lg",
+        titleColor: "text-gray-800",
+        textColor: "text-gray-700",
+      };
+    }
+
+    // Tmavá varianta (výchozí)
+    return {
+      className: "p-6 text-white rounded-lg",
+      style: {
+        border: "1px solid rgba(255, 235, 176, 0.25)",
+        background: "rgba(26, 26, 26, 0.50)",
+        backdropFilter: "blur(20px)",
+      },
+      titleColor: "text-white",
+      textColor: "text-gray-300",
+    };
+  };
+
+  const cardStyles = getCardStyles();
+
   return (
     <div className={`w-full ${className}`}>
       {/* Grid karet - 4 na desktopu, 2 na mobilu */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-8 md:pt-12 px-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-8 md:pt-12">
         {displayFeatures.map((feature, index) => (
           <div
             key={index}
-            className="p-6 text-white rounded-lg"
-            style={{
-              border: "1px solid rgba(255, 235, 176, 0.25)",
-              background: "rgba(26, 26, 26, 0.50)",
-              backdropFilter: "blur(20px)",
-            }}
+            className={cardStyles.className}
+            style={cardStyles.style}
           >
             {/* Ikona */}
             <div className="text-4xl mb-4 text-center">{feature.emoji}</div>
@@ -124,13 +147,16 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
             {/* Nadpis */}
             <Title
               as="h4"
-              className="text-lg font-semibold mb-3 text-center text-white"
+              className={`text-lg font-semibold mb-3 text-center ${cardStyles.titleColor}`}
+              locale={locale}
             >
               {feature.title}
             </Title>
 
             {/* Popis */}
-            <p className="text-sm text-gray-300 text-center leading-relaxed">
+            <p
+              className={`text-sm text-center leading-relaxed ${cardStyles.textColor}`}
+            >
               {feature.description}
             </p>
           </div>
@@ -141,4 +167,3 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
 };
 
 export { FeaturesSection };
-export type { FeaturesSectionProps, FeatureItem };

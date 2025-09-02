@@ -78,6 +78,9 @@ export const translations = {
       mainPhone: "+357 97741469",
       mainPhoneHref: "tel:+35797741469",
     },
+    about: {
+      title: "About us",
+    },
     contactForm: {
       name: "Name",
       namePlaceholder: "Enter your full name",
@@ -290,6 +293,9 @@ export const translations = {
       requiredHelper: "Povinné pole",
       formTitle: "Zanechte nám zprávu",
     },
+    about: {
+      title: "O nás",
+    },
     career: {
       heroTitle:
         "Přidejte se k nám a zajistěte si nadstandartní výdělek a flexibilní pracovní dobu!",
@@ -456,6 +462,9 @@ export const translations = {
           "Протирание ручек, выключателей, перил и других доступных поверхностей",
         pillow: "Приведение вещей в порядок (например, подушки, пледы, одеяла)",
       },
+    },
+    about: {
+      title: "О нас",
     },
 
     contact: {

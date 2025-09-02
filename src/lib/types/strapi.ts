@@ -43,6 +43,17 @@ export interface TermsContent extends StrapiSingleType<any> {
   }>;
 }
 
+export interface AboutContent extends StrapiSingleType<any> {
+  title: string;
+  content: Array<{
+    type: string;
+    children: Array<{
+      type: string;
+      text: string;
+    }>;
+  }>;
+}
+
 export interface Service extends StrapiSingleType<any> {
   title: string;
   image?: StrapiImage;

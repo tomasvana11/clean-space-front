@@ -3,6 +3,7 @@ import { Title } from "@/components/Title";
 import { ContentWrapper } from "@/components/ContentWrapper";
 import { Hero } from "@/components/Hero";
 import { CareerForm } from "@/components/CareerForm";
+import { FeaturesSection } from "@/components/FeaturesSection";
 
 interface Props {
   params: Promise<{ locale: Locale }>;
@@ -24,6 +25,7 @@ export default async function CareerPage({ params }: Props) {
       </Hero>
 
       <div className="px-4 -mt-[100px] md:-mt-[150px] z-50 relative">
+        <FeaturesSection locale={locale} variant="light" />
         <ContentWrapper className="rounded-xl bg-white p-4 md:p-8 justify-center flex">
           <div className="bg-[#FFF5D7] rounded-sm py-8 md:py-16 px-4 md:px-8 lg:px-24 max-w-[700px] ">
             <div className="max-w-2xl mx-auto text-center ">

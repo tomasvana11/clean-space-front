@@ -36,7 +36,9 @@ export default async function HomePage({ params }: Props) {
           locale={locale}
           buttonIcon="chevron-right-double.svg"
         />
-        <FeaturesSection locale={locale} />
+        <div className="px-4">
+          <FeaturesSection locale={locale} />
+        </div>
       </Hero>
       <div className="px-4">
         <ContentWrapper className="bg-white rounded-b-xl pb-12">

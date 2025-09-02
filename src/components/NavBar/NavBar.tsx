@@ -21,7 +21,7 @@ export const NavBar = ({ locale }: NavBarProps) => {
   };
 
   const navItems: NavItem[] = [
-    { label: t(locale, "navbar.about"), href: `/${locale}` },
+    { label: t(locale, "navbar.about"), href: `/${locale}/about-us` },
     { label: t(locale, "navbar.services"), href: `/${locale}/services` },
     { label: t(locale, "navbar.career"), href: `/${locale}/career` },
     { label: t(locale, "navbar.contact"), href: `/${locale}/contact` },
