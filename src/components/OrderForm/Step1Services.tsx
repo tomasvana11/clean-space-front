@@ -394,22 +394,8 @@ export function Step1Services({
         {t(locale, "orderForm.step1Subtitle")}
       </Title>
 
-      {/* Property Type Selection */}
       <div className="space-y-3">
-        <Title
-          as="h5"
-          className="text-[#372900] !text-[16px] lg:!text-[18px] font-semibold"
-          locale={locale}
-        >
-          {locale === "cs"
-            ? "Typ nemovitosti"
-            : locale === "ru"
-            ? "Тип недвижимости"
-            : "Property Type"}
-        </Title>
-
         <div className="grid grid-cols-2 gap-4">
-          {/* Flat Card */}
           <div
             onClick={() => handlePropertyTypeChange("flat")}
             className={`p-4 rounded-lg border-1 cursor-pointer transition-colors duration-200 ${
@@ -430,7 +416,6 @@ export function Step1Services({
             </div>
           </div>
 
-          {/* House Card */}
           <div
             onClick={() => handlePropertyTypeChange("house")}
             className={`p-4 rounded-lg border-1 cursor-pointer transition-colors duration-200 ${
@@ -450,11 +435,9 @@ export function Step1Services({
       </div>
 
       <div className="flex flex-col gap-2">
-        {/* Rooms and Bathrooms - New Compact Format */}
         <div className="bg-white p-4 md:p-6 rounded-lg border border-gray-200">
           <div className="bg-white rounded-xl md:rounded-sm p-2 flex md:inline-flex mx-auto ">
             <div className="flex w-full flex-col md:flex-row items-center justify-between gap-4 md:gap-2 md:gap-6">
-              {/* Rooms Section */}
               <div className="flex items-center gap-2 md:gap-3">
                 <button
                   type="button"
@@ -478,10 +461,8 @@ export function Step1Services({
                 </button>
               </div>
 
-              {/* Vertical/Horizontal Divider */}
               <div className="w-full h-px md:h-6 md:w-px bg-gray-300 md:bg-gray-400"></div>
 
-              {/* Bathrooms Section */}
               <div className="flex items-center gap-2 sm:gap-3">
                 <button
                   type="button"
@@ -516,7 +497,6 @@ export function Step1Services({
         </a>
       </div>
 
-      {/* NOVÉ ECO-FRIENDLY CHECKBOX */}
       <div className="bg-white p-6 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors duration-200">
         <label className="flex items-center cursor-pointer">
           <input
@@ -560,7 +540,6 @@ export function Step1Services({
         </label>
       </div>
 
-      {/* Additional Services */}
       <div>
         <Title
           as="h4"
