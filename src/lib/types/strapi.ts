@@ -53,7 +53,7 @@ export interface AboutContent extends StrapiSingleType<any> {
     }>;
   }>;
 }
-
+/*
 export interface Service extends StrapiSingleType<any> {
   title: string;
   image?: StrapiImage;
@@ -64,6 +64,33 @@ export interface Service extends StrapiSingleType<any> {
       text: string;
     }>;
   }>;
+  price: number;
+  duration: number;
+  slug: string;
+}*/
+
+export interface Service extends StrapiSingleType<any> {
+  title: string;
+  image?: StrapiImage;
+
+  // starý field (pokud ho už nepoužíváš, můžeš klidně odstranit)
+  whats_included?: Array<{
+    type: string;
+    children: Array<{
+      type: string;
+      text: string;
+    }>;
+  }>;
+
+  // nový field podle JSONu
+  includes?: {
+    id: number;
+    point: {
+      id: number;
+      text: string;
+    }[];
+  } | null;
+
   price: number;
   duration: number;
   slug: string;

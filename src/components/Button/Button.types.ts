@@ -7,7 +7,7 @@ export type ButtonVariant =
   | "danger"
   | "blank"
   | "smallLink";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = "sm" | "md" | "mdl" | "lg";
 
 // Základní props
 interface BaseButtonProps {
