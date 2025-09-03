@@ -291,6 +291,22 @@ export function OrderForm({ locale }: OrderFormProps) {
 
           <div className="text-sm text-[#372900] space-y-1">
             <div>
+              <div className="py-1 px-2 font-semibold rounded-lg bg-[#FFF5D7] text-[#BC7700] inline-flex mb-2 mr-2">
+                <span>{formData.property === "flat" ? "🏬" : "🏡"}&nbsp;</span>
+                <span>
+                  {formData.property === "flat"
+                    ? locale === "cs"
+                      ? "Byt"
+                      : locale === "ru"
+                      ? "Квартира"
+                      : "Flat"
+                    : locale === "cs"
+                    ? "Dům"
+                    : locale === "ru"
+                    ? "Дом"
+                    : "House"}
+                </span>
+              </div>
               {formData.eco && (
                 <div className="py-1 px-2 font-semibold rounded-lg bg-green-100 text-green-600 inline-flex mb-2">
                   <span>♻️&nbsp;</span>

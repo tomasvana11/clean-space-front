@@ -41,7 +41,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className="bg-[#FFF5D7] flex flex-row gap-6 items-center rounded-xl max-w-[700px] w-full p-6 relative mt-20 max-h-[90vh]">
+      <div className="bg-[#FFF5D7] flex flex-col md:flex-row gap-6 items-center rounded-xl max-w-[700px] w-full p-6 relative mt-20 max-h-[90vh]">
         <button
           onClick={onClose}
           className="flex flex-row gap-2 items-center absolute -top-16 right-0 text-white text-base cursor-pointer bg-[#372900] hover:bg-[#281E00] transition-colors duration-200 pl-4 pr-5 py-4 rounded-xl font-semibold"
@@ -63,7 +63,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
                     }${image.url}`
               }
               alt={image.alternativeText || title}
-              className="w-40 md:w-48 h-40 md:h-48 mx-auto transition-transform duration-300 group-hover:scale-105"
+              className="w-32 md:w-48 h-32 md:h-48 mx-auto transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         )}

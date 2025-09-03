@@ -161,7 +161,7 @@ export const translations = {
     orderForm: {
       // Steps
       step1Title: "Select Services",
-      step1Subtitle: "How big is the apartment we will be cleaning?",
+      step1Subtitle: "Tell us something about your property",
       step2Title: "Location & Time",
       step3Title: "Contact Info",
       step4Title: "Payment",
@@ -369,7 +369,7 @@ export const translations = {
     },
     orderForm: {
       step1Title: "Výběr služby",
-      step1Subtitle: "Jak velký byt budeme uklízet?",
+      step1Subtitle: "Řekněte nám více o vaší nemovitosti",
       step2Title: "Datum a čas",
       step3Title: "Adresa a kontakt",
       step4Title: "Platba",
@@ -574,7 +574,7 @@ export const translations = {
     },
     orderForm: {
       step1Title: "Выбор услуг",
-      step1Subtitle: "Какой площади квартира, которую мы будем убирать?",
+      step1Subtitle: "Расскажите нам больше о вашей недвижимости",
       step2Title: "Место и время",
       step3Title: "Контактные данные",
       step4Title: "Оплата",
