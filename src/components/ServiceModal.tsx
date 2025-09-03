@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { StrapiImage } from "@/lib/types/strapi";
-import { Locale } from "@/utils/i18n";
+import { Locale, t } from "@/utils/i18n";
 import { Title } from "./Title";
 
 interface ServiceModalProps {
@@ -12,7 +12,7 @@ interface ServiceModalProps {
   image?: StrapiImage;
   points: { id: number; text: string }[];
   price: number;
-  locale: Locale | string;
+  locale: Locale;
 }
 
 export const ServiceModal: React.FC<ServiceModalProps> = ({
@@ -47,7 +47,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
           className="flex flex-row gap-2 items-center absolute -top-16 right-0 text-white text-base cursor-pointer bg-[#372900] hover:bg-[#281E00] transition-colors duration-200 pl-4 pr-5 py-4 rounded-xl font-semibold"
         >
           <img src="/icons/x-close.svg" className="w-6 h-6" />
-          <span>Zavřít</span>
+          <span>{t(locale, "general.closeTitle")}</span>
         </button>
 
         {/* Obrázek */}
@@ -83,7 +83,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
               className="text-[#DB8A00] pb-2 underline"
               locale={locale}
             >
-              V ceně je zahrnuto:
+              {t(locale, "services.serviceModalInclude")}
             </Title>
             {/* Pointy */}
             {points.length > 0 ? (
@@ -96,7 +96,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
                 ))}
               </div>
             ) : (
-              <p className="text-gray-500 mb-4">No details available</p>
+              <p className="text-gray-500 mb-4">-</p>
             )}
           </div>
 

@@ -11,6 +11,10 @@ export const getLocaleFromPath = (pathname: string): Locale => {
 
 export const translations = {
   en: {
+    general: {
+      detailTitle: "Detail",
+      closeTitle: "Close",
+    },
     footer: {
       supportTitle: "Live support - No chatbots",
       supportSub:
@@ -124,6 +128,7 @@ export const translations = {
       desc: "From everyday cleaning to special care – services built around your space.",
       link: "What's included in the base price?",
       includedTitle: "Where do we clean for you?",
+      serviceModalInclude: "Included in the price:",
     },
     home: {
       heroTitle: "Professional cleaning services",
@@ -217,6 +222,10 @@ export const translations = {
     },
   },
   cs: {
+    general: {
+      detailTitle: "Detail",
+      closeTitle: "Zavřít",
+    },
     footer: {
       supportTitle: "Živá podpora - žádní chatboti",
       supportSub:
@@ -328,6 +337,7 @@ export const translations = {
       desc: "Od každodenního úklidu po speciální péči – služby šité na míru vašemu prostoru.",
       link: "Co je zahrnuto v základní ceně?",
       includedTitle: "Kde všude vám uklidíme?",
+      serviceModalInclude: "V ceně je zahrnuto:",
     },
     home: {
       heroTitle: "Profesionální úklidové služby",
@@ -414,6 +424,11 @@ export const translations = {
     },
   },
   ru: {
+    general: {
+      detailTitle: "Детали",
+      closeTitle: "Закрыть",
+    },
+
     footer: {
       supportTitle: "Живая поддержка — никаких чат-ботов",
       supportSub:
@@ -527,6 +542,7 @@ export const translations = {
       desc: "От ежедневной уборки до особого ухода — услуги, созданные для вашего пространства.",
       link: "Что включено в базовую цену?",
       includedTitle: "Где мы для вас уберем?",
+      serviceModalInclude: "В стоимость входит:",
     },
     home: {
       heroTitle: "Профессиональные клининговые услуги",

@@ -7,7 +7,7 @@ import { ServiceCard } from "./ServiceCard";
 
 interface ServiceCardsGridProps {
   services: Service[];
-  locale: Locale | string;
+  locale: Locale;
 }
 
 export const ServiceCardsGrid: React.FC<ServiceCardsGridProps> = ({
