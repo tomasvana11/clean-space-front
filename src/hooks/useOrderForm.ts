@@ -787,8 +787,8 @@ export function useOrderForm() {
     }
 
     // PŘIDAT PŘÍPLATKY ZA EXTRA KOUPELNY (od 3. koupelny včetně +10 EUR za každou)
-    if (formData.bathrooms >= 3) {
-      const extraBathrooms = formData.bathrooms - 2; // koupelny nad 2
+    if (formData.bathrooms >= 2) {
+      const extraBathrooms = formData.bathrooms - 1; // koupelny nad 2
       total += extraBathrooms * 10;
     }
 
