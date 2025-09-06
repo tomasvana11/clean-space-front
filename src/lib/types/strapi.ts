@@ -94,6 +94,7 @@ export interface Service extends StrapiSingleType<any> {
   price: number;
   duration: number;
   slug: string;
+  quantity?: boolean;
 }
 
 export interface Location extends StrapiSingleType<any> {

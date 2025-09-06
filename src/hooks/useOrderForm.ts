@@ -547,6 +547,7 @@ function getTimeSlotText(timeSlot: string): string {
 }
 */
 
+
 /*
 "use client";
 
@@ -700,8 +701,9 @@ export function useOrderForm() {
 export default useOrderForm;
 */
 
-"use client";
 
+/*
+"use client";
 import { useState, useEffect } from "react";
 import { OrderFormData } from "@/lib/types/order";
 
@@ -714,8 +716,8 @@ export function useOrderForm() {
   const [formData, setFormData] = useState<OrderFormData>({
     rooms: 1,
     bathrooms: 1,
-    property: "flat", // NOVÉ POLE - default na "flat"
-    additionalServices: [],
+    property: "flat",
+    additionalServices: [], // Nyní bude obsahovat ServiceWithQuantity[]
     location: null,
     date: "",
     timeSlot: "morning",
@@ -725,7 +727,7 @@ export function useOrderForm() {
     address: "",
     paymentMethod: "bankTransfer",
     totalPrice: 150,
-    eco: false, // NOVÉ POLE
+    eco: false,
   });
 
   // Load from localStorage on mount
@@ -739,10 +741,24 @@ export function useOrderForm() {
           parsed.timestamp &&
           now - parsed.timestamp < EXPIRY_HOURS * 60 * 60 * 1000
         ) {
-          // Ensure that property field exists in stored data (backwards compatibility)
+          // Ensure backwards compatibility
           const dataWithProperty = {
             ...parsed.data,
-            property: parsed.data.property || "flat", // Default to "flat" if not present
+            property: parsed.data.property || "flat",
+            // Migrace starých dat - pokud additionalServices neobsahuje quantity, přidáme ji
+            additionalServices: parsed.data.additionalServices?.map((item: any) => {
+              if (item.quantity !== undefined && item.service !== undefined) {
+                return item; // Už má správnou strukturu ServiceWithQuantity
+              } else if (item.id !== undefined) {
+                // Stará struktura - Service[], převedeme na ServiceWithQuantity[]
+                return {
+                  service: item,
+                  quantity: 1
+                };
+              } else {
+                return item; // Fallback
+              }
+            }) || []
           };
           setFormData(dataWithProperty);
           setCurrentStep(parsed.step || 1);
@@ -750,6 +766,7 @@ export function useOrderForm() {
           localStorage.removeItem(STORAGE_KEY);
         }
       } catch (error) {
+        console.error("Error loading from localStorage:", error);
         localStorage.removeItem(STORAGE_KEY);
       }
     }
@@ -765,9 +782,10 @@ export function useOrderForm() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToStore));
   }, [formData, currentStep]);
 
-  // Calculate total price - AKTUALIZOVÁNO pro eco, property type a extra pokoje/koupelny
+  // Calculate total price - AKTUALIZOVÁNO pro quantity
   useEffect(() => {
     let total;
+    
     // Base price podle počtu pokojů
     if (formData.rooms <= 2) {
       total = 150; // 1-2 pokoje: base price 150 EUR
@@ -780,21 +798,12 @@ export function useOrderForm() {
       total = total * 1.2; // 20% příplatek pro dům
     }
 
-    // PŘIDAT PŘÍPLATKY ZA EXTRA POKOJE (od 4. pokoje včetně +10 EUR za každý)
-    if (formData.rooms >= 4) {
-      const extraRooms = formData.rooms - 3; // pokoje nad 3
-      total += extraRooms * 10;
-    }
-
-    // PŘIDAT PŘÍPLATKY ZA EXTRA KOUPELNY (od 3. koupelny včetně +10 EUR za každou)
-    if (formData.bathrooms >= 2) {
-      const extraBathrooms = formData.bathrooms - 1; // koupelny nad 2
-      total += extraBathrooms * 10;
-    }
-
-    // Přidat ceny dodatečných služeb
+    // Přidat ceny dodatečných služeb S QUANTITY
     total += formData.additionalServices.reduce(
-      (sum, service) => sum + service.price,
+      (sum, item) => {
+        const servicePrice = item.service.price || 0;
+        return sum + (servicePrice * item.quantity);
+      },
       0
     );
 
@@ -805,15 +814,14 @@ export function useOrderForm() {
 
     // Zaokrouhlit na celá čísla
     total = Math.round(total);
-
+    
     setFormData((prev) => ({ ...prev, totalPrice: total }));
   }, [
     formData.rooms,
     formData.additionalServices,
     formData.eco,
     formData.property,
-    formData.bathrooms,
-  ]); // PŘIDÁNO formData.bathrooms
+  ]);
 
   const updateFormData = (updates: Partial<OrderFormData>) => {
     setFormData((prev) => ({ ...prev, ...updates }));
@@ -832,7 +840,7 @@ export function useOrderForm() {
     setFormData({
       rooms: 1,
       bathrooms: 1,
-      property: "flat", // PŘIDÁNO
+      property: "flat",
       additionalServices: [],
       location: null,
       date: "",
@@ -843,7 +851,196 @@ export function useOrderForm() {
       address: "",
       paymentMethod: "bankTransfer",
       totalPrice: 150,
-      eco: false, // PŘIDÁNO
+      eco: false,
+    });
+    setCurrentStep(1);
+  };
+
+  return {
+    currentStep,
+    formData,
+    updateFormData,
+    nextStep,
+    prevStep,
+    clearForm,
+    setCurrentStep,
+    isLoading,
+    setIsLoading,
+  };
+}
+
+// Přidáváme také default export pro flexibilitu
+export default useOrderForm;
+*/"use client";
+import { useState, useEffect } from "react";
+import { OrderFormData } from "@/lib/types/order";
+
+const STORAGE_KEY = "order_form_data";
+const EXPIRY_HOURS = 24;
+
+export function useOrderForm() {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState<OrderFormData>({
+    rooms: 1,
+    bathrooms: 1,
+    property: "flat",
+    additionalServices: [],
+    location: null,
+    date: "",
+    timeSlot: "morning",
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    paymentMethod: "bankTransfer",
+    totalPrice: 150,
+    eco: false,
+  });
+
+  // Load from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        const now = new Date().getTime();
+        if (
+          parsed.timestamp &&
+          now - parsed.timestamp < EXPIRY_HOURS * 60 * 60 * 1000
+        ) {
+          // Ensure backwards compatibility
+          const dataWithProperty = {
+            ...parsed.data,
+            property: parsed.data.property || "flat",
+            // Migrace starých dat - pokud additionalServices neobsahuje quantity, přidáme ji
+            additionalServices: parsed.data.additionalServices?.map((item: any) => {
+              if (item.quantity !== undefined && item.service !== undefined) {
+                return item; // Už má správnou strukturu ServiceWithQuantity
+              } else if (item.id !== undefined) {
+                // Stará struktura - Service[], převedeme na ServiceWithQuantity[]
+                return {
+                  service: item,
+                  quantity: 1
+                };
+              } else {
+                return item; // Fallback
+              }
+            }) || []
+          };
+          setFormData(dataWithProperty);
+          setCurrentStep(parsed.step || 1);
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      } catch (error) {
+        console.error("Error loading from localStorage:", error);
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+  }, []);
+
+  // Save to localStorage on data change
+  useEffect(() => {
+    const dataToStore = {
+      data: formData,
+      step: currentStep,
+      timestamp: new Date().getTime(),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToStore));
+  }, [formData, currentStep]);
+
+  // Calculate total price - SPRÁVNÁ CENOVÁ LOGIKA
+  useEffect(() => {
+    let total = 0;
+    
+    if (formData.property === "flat") {
+      // BYT: Base cena podle pokojů
+      if (formData.rooms <= 2) {
+        total = 150; // 1-2 pokoje: 150 EUR
+      } else if (formData.rooms === 3) {
+        total = 160; // 3 pokoje: 160 EUR
+      } else {
+        // 4+ pokoje: base 160 + 10 EUR za každý další pokoj nad 3
+        total = 160 + (formData.rooms - 3) * 10;
+      }
+      
+      // Koupelny: pokud více než 1, +10 EUR za každou další
+      if (formData.bathrooms > 1) {
+        total += (formData.bathrooms - 1) * 10;
+      }
+    } else {
+      // DŮM: Base cena podle pokojů (120% z bytu)
+      if (formData.rooms <= 2) {
+        total = 180; // 120% z 150
+      } else if (formData.rooms === 3) {
+        total = 192; // 120% z 160
+      } else {
+        // 4+ pokoje: base 192 + 10 EUR za každý další pokoj nad 3
+        total = 192 + (formData.rooms - 3) * 10;
+      }
+      
+      // Koupelny: pokud více než 1, +10 EUR za každou další
+      if (formData.bathrooms > 1) {
+        total += (formData.bathrooms - 1) * 10;
+      }
+    }
+
+    // Přidat ceny dodatečných služeb S QUANTITY
+    total += formData.additionalServices.reduce(
+      (sum, item) => {
+        const servicePrice = item.service.price || 0;
+        return sum + (servicePrice * item.quantity);
+      },
+      0
+    );
+
+    // Přidat ECO-FRIENDLY poplatek
+    if (formData.eco) {
+      total += 50;
+    }
+
+    // Zaokrouhlit na celá čísla
+    total = Math.round(total);
+    
+    setFormData((prev) => ({ ...prev, totalPrice: total }));
+  }, [
+    formData.rooms,
+    formData.bathrooms,
+    formData.additionalServices,
+    formData.eco,
+    formData.property,
+  ]);
+
+  const updateFormData = (updates: Partial<OrderFormData>) => {
+    setFormData((prev) => ({ ...prev, ...updates }));
+  };
+
+  const nextStep = () => {
+    if (currentStep < 4) setCurrentStep(currentStep + 1);
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) setCurrentStep(currentStep - 1);
+  };
+
+  const clearForm = () => {
+    localStorage.removeItem(STORAGE_KEY);
+    setFormData({
+      rooms: 1,
+      bathrooms: 1,
+      property: "flat",
+      additionalServices: [],
+      location: null,
+      date: "",
+      timeSlot: "morning",
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      paymentMethod: "bankTransfer",
+      totalPrice: 150,
+      eco: false,
     });
     setCurrentStep(1);
   };

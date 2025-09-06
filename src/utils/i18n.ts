@@ -181,6 +181,7 @@ export const translations = {
       additionalRooms: "Additional rooms",
       additionalBathrooms: "Additional bathrooms",
       additionalServices: "Additional services",
+      additionalServicesTitle:"Additional services",
       noAdditionalServices: "No additional services available",
       selected: "Selected",
 
@@ -388,6 +389,7 @@ export const translations = {
       additionalRooms: "Další pokoje",
       additionalBathrooms: "Další koupelny",
       additionalServices: "Jaké služby navíc se vám budou hodit?",
+      additionalServicesTitle:"Doplňkové služby",
       noAdditionalServices: "Žádné dodatečné služby nejsou k dispozici",
       selected: "Vybráno",
 
@@ -592,6 +594,7 @@ export const translations = {
       additionalRooms: "Дополнительные комнаты",
       additionalBathrooms: "Дополнительные ванные",
       additionalServices: "Дополнительные услуги",
+      additionalServicesTitle:"Дополнительные услуги",
       noAdditionalServices: "Дополнительные услуги недоступны",
       selected: "Выбрано",
 
