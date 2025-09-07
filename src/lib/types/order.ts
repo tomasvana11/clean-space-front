@@ -118,6 +118,8 @@ export interface OrderDataForStrapi {
 }
   */
 
+
+/*
 // lib/types/order.ts
 import { Service, Location } from "./strapi";
 
@@ -147,6 +149,53 @@ export interface OrderFormData {
   // Calculated
   totalPrice: number;
   eco: boolean;
+  // Generated after order creation
+  displayTitle?: string;
+}
+
+// Zjednodušené JSON data pro Strapi - jen název a quantity
+export interface OrderedService {
+  serviceName: string;
+  quantity: number;
+}
+  */
+
+import { Service, Location } from "./strapi";
+
+// Interface pro služby s quantity
+export interface ServiceWithQuantity {
+  service: Service;
+  quantity: number;
+}
+
+export interface OrderFormData {
+  // Step 1: Services
+  rooms: number;
+  bathrooms: number;
+  property: "flat" | "house";
+  additionalServices: ServiceWithQuantity[];
+  
+  // Step 2: Location & Time
+  location: Location | null;
+  date: string;
+  timeSlot: "morning" | "noon" | "afternoon" | "unsure";
+  
+  // Step 3: Customer Info + Frequency
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  frequency?: "one-time" | "weekly" | "bi-weekly" | "monthly";
+  discountPercentage?: number;
+  
+  // Step 4: Payment
+  paymentMethod: "bankTransfer" | "card";
+  
+  // Calculated
+  totalPrice: number;
+  originalPrice?: number; // Cena před slevou
+  eco: boolean;
+  
   // Generated after order creation
   displayTitle?: string;
 }
