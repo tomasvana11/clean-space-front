@@ -1155,7 +1155,7 @@ export function useOrderForm() {
     if (formData.property === "flat") {
       // BYT: Base cena podle pokojů
       if (formData.rooms <= 2) {
-        baseTotal = 150; // 1-2 pokoje: 150 EUR
+        baseTotal = 0; // 1-2 pokoje: 150 EUR
       } else if (formData.rooms === 3) {
         baseTotal = 160; // 3 pokoje: 160 EUR
       } else {
@@ -1249,8 +1249,8 @@ export function useOrderForm() {
       frequency: "one-time",
       discountPercentage: 0,
       paymentMethod: "bankTransfer",
-      totalPrice: 150,
-      originalPrice: 150,
+      totalPrice: 0,
+      originalPrice: 0,
       eco: false,
     });
     setCurrentStep(1);

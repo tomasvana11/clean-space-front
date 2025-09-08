@@ -190,6 +190,7 @@ export interface OrderFormData {
   
   // Step 4: Payment
   paymentMethod: "bankTransfer" | "card";
+  stripePaymentIntentId?: string;
   
   // Calculated
   totalPrice: number;
