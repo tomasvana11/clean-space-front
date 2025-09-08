@@ -207,7 +207,7 @@ export const translations = {
       // Step 4
       paymentMethod: "Payment method",
       bankTransfer: "Bank transfer",
-      card: "Card payment (coming soon)",
+      card: "Card payment",
 
       // Common
       next: "Continue",
@@ -412,7 +412,7 @@ export const translations = {
 
       paymentMethod: "Způsob platby",
       bankTransfer: "Bankovní převod",
-      card: "Platba kartou (připravujeme)",
+      card: "Platba kartou",
 
       next: "Pokračovat",
       back: "Zpět",
@@ -617,7 +617,7 @@ export const translations = {
 
       paymentMethod: "Способ оплаты",
       bankTransfer: "Банковский перевод",
-      card: "Оплата картой (скоро)",
+      card: "Оплата картой",
 
       next: "Далее",
       back: "Назад",

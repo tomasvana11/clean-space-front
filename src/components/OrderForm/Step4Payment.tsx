@@ -174,10 +174,6 @@ export function Step4Payment({
   return (
     <div className="space-y-6 bg-white rounded-xl p-6 w-full">
       <div>
-        <Title as="h3" className="text-xl font-semibold mb-4 text-gray-800" locale={locale}>
-          {t(locale, "orderForm.selectPaymentMethod")}
-        </Title>
-        
         <div className="flex flex-col md:flex-row gap-6 mb-6">
           {paymentMethods.map((method) => (
             <div
