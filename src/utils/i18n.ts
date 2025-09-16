@@ -134,11 +134,11 @@ export const translations = {
       heroTitle: "Professional cleaning services",
       heroDesc:
         "Because every space deserves to shine – we deliver trusted cleaning services that adapt to your needs, schedule, and expectations.",
-      ms1: "We will clean the living room",
-      ms2: "We will clean the hallways",
-      ms3: "We will clean the kitchen",
-      ms4: "We will clean the balcony / terrace",
-      ms5: "We will clean the bathroom",
+      ms1: "We clean living room ",
+      ms2: "We clean the hallways",
+      ms3: "We clean the kitchen",
+      ms4: "We clean the balcony / terrace",
+      ms5: "We clean the bathroom",
     },
     navbar: {
       about: "About us",
